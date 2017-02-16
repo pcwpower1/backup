@@ -1,0 +1,220 @@
+//공통색상
+$font-green:#04b122;//상단 배너 색상타입
+$font-block:#010101;//주요경기 기본색상타입
+$font-events:#0098f9;//링크색상
+$font-medel:#fda9ac;//메달색상
+$font-common-link-font:#005fc1;//링크 기본폰트
+$font-list-color:#333;//올림픽 리스트색상
+$font-noti-color:#999;//업데이트 앙림
+//공통 보더 색상
+$border-common:#e0e3e6;//기본 테두리
+$border-list-top:#eeeff1;//리스트 기본라인
+$border-update-top:#f2f2f2;//업데이트 타입
+
+//메달 공통 색상
+$medal-gold:#dc8f27;//금
+$medal-silver:#838d97;//은
+$medal-bronze:#a66c46;//동
+
+//font 정의
+$font-medium: HelveticaNeue,AppleSDGothicNeo-Medium, sans-serif; // medium
+$font-light: HelveticaNeue-Light,AppleSDGothicNeo-Light, sans-serif; // right
+$font-normal-right: HelveticaNeue,AppleSDGothicNeo-Light, sans-serif; //숫자  normal 한글 light
+$font-medium-right:HelveticaNeue-Medium,AppleSDGothicNeo-Light, sans-serif;//숫자 midium 한글 light
+$font-Regular:HelveticaNeue,AppleSDGothicNeo-Regular, sans-serif;//Regular;
+$font-Medium-Regular:HelveticaNeue-Medium,AppleSDGothicNeo-Regular, sans-serif;//Medium-Regular
+
+//background 색상
+$background-yellow:#fffbe3;//주요경기 상단 배너타입
+$background-list:#fbfbfc;//주요경기타입
+$background-list2:#f7f7f7;//영상 하단
+$background-relation:#f7f7f9;//관련겸색 케이스
+$background-medal:#f9f9fb;//메달 정보 색상
+
+//공통 보더
+@mixin border-common($border-color)
+{
+border-bottom: 1px solid $border-color;
+}
+//더보기 공통
+@mixin border-ty($border-color)
+{
+overflow:hidden;
+display:block;
+border-top:1px solid $border-color
+}
+
+
+//더보기 공통
+@mixin list-more($top-position, $right-position)
+{
+  position:absolute;
+  top:$top-position;
+  right:$right-position;
+  text-decoration:underline;
+  font-size:13px;
+  color:#acacac;
+}
+
+//hadding title
+@mixin heading-title()
+{
+font-size:16px;
+color:#000;
+font-family:$font-medium;
+font-weight:normal;
+}
+//종목 리스트  타이틀
+@mixin event-title()
+{
+font-size:15px;
+color:#222;
+font-weight:normal;
+font-family:AppleSDGothicNeo-Bold;
+}
+
+//테이블 타입
+@mixin table_type()
+{
+  overflow:hidden;
+  display:table;
+  width:100%;
+  table-layout:fixed;
+}
+
+
+//스프라이트 이미지
+@mixin sprites()
+{
+overflow:hidden;
+display:inline-block;
+vertical-align:top;
+background: url(../im/spr_ico.png) no-repeat;
+-webkit-background-size:200px 300px;
+background-size:200px 300px;
+color:transparent;
+}
+//종목스프라이트 이미지
+@mixin sprites2()
+{
+overflow:hidden;
+display:block;
+vertical-align:top;
+background: url(../im/spr_event.png) no-repeat;
+-webkit-background-size:200px 400px;
+background-size:200px 400px;
+color:transparent;
+}
+//종목스프라이트 이미지
+@mixin sprites3()
+{
+overflow:hidden;
+display:block;
+vertical-align:top;
+background: url(../im/spr_event2.png) no-repeat;
+-webkit-background-size:250px 250px;
+background-size:250px 250px;
+color:transparent;
+}
+//종목스프라이트 이미지
+@mixin sprites4()
+{
+overflow:hidden;
+display:block;
+vertical-align:top;
+background: url(../im/spr_event3.png) no-repeat;
+-webkit-background-size:250px 250px;
+background-size:250px 250px;
+color:transparent;
+}
+
+//국기스프라이트 이미지
+@mixin sprites5()
+{
+overflow:hidden;
+vertical-align:top;
+background: url(../im/spr_flag.png) no-repeat;
+-webkit-background-size:50px 50px;
+background-size:50px 50px;
+color:transparent;
+}
+//개별종목 종목스프라이트
+@mixin sprites6()
+{
+overflow:hidden;
+display:inline-block;
+vertical-align:top;
+background: url(../im/spr_event4.png) no-repeat;
+-webkit-background-size:125px 30px;
+background-size:125px 30px;
+color:transparent;
+}
+
+//개별종목 국가이미지
+@mixin sprites7()
+{
+overflow:hidden;
+display:block;
+width:76px;
+height:50px;
+background: url(../im/spr_game_falg.png) no-repeat;
+-webkit-background-size:200px 200px;
+background-size:200px 200px;
+color:transparent;
+}
+//테두리 커버
+@mixin border-corver()
+{
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  display:block;
+  border:1px solid #000;
+  opacity:.04;
+  z-index:50;
+  content:'';
+}
+
+@mixin border-bottom($bottom-color)
+{
+  border-bottom:1px solid $bottom-color;
+}
+//box-sizing
+@mixin box_sz()
+{
+box-sizing:border-box;
+-webkit-box-sizing:border-box;
+}
+
+/* multi-line ellipsis mixin */
+@mixin ellis($value:1) {
+	overflow: hidden;
+	@if ($value == 1) {
+		white-space: nowrap;
+    text-overflow: ellipsis;
+		word-break: break-all;
+	}
+	@else {
+		display:-webkit-box;
+    -webkit-line-clamp:$value;
+    -webkit-box-orient:vertical;
+    white-space:normal;
+    word-wrap:break-word		
+	}
+}
+//webkit-box
+@mixin webkit-box()
+{
+  overflow:hidden;
+  display:-webkit-box;
+  -webkit-box-orient:horizontal;
+  }
+
+//flex
+@mixin webkit-box-flex()
+{
+  -webkit-box-flex: 1;
+  box-flex: 1
+}
